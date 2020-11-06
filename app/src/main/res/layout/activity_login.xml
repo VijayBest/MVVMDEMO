@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.app.demo.activity.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editEmail"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@drawable/edit_bg"
+                android:hint="@string/name_text"
+                android:text="@={viewModel.email}"
+                error="@{viewModel.emailError}"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:textColorHint="@android:color/black"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toTopOf="parent"
+              />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editPassword"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@drawable/edit_bg"
+                android:hint="@string/name_text"
+                android:text="@={viewModel.password}"
+                error="@{viewModel.passwordError}"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:textColorHint="@android:color/black"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:inputType="textPassword"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@+id/editEmail"
+                />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_constraintTop_toBottomOf="@+id/editPassword"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:cornerRadius="@dimen/_10sdp"
+                android:text="@string/login_text"
+                android:textAllCaps="true"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:textSize="@dimen/_13sdp"
+                android:shadowRadius="5.0"
+                android:onClick="@{()->viewModel.loginOnClick()}"
+                android:letterSpacing="0"
+                android:backgroundTint="@android:color/black"
+                android:textColor="@android:color/white"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
